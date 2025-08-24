@@ -21,9 +21,6 @@ jobs:
       - name: Install dependencies
         run: npm install --force
 
-      - name: fix dependencies
-        run:  npm audit fix --force
-
       - name: Run build
         run: npm run build
 
