@@ -1,0 +1,182 @@
+/* ✅ Navbar Styling */
+.navbar {
+  background-color: #111;
+  padding: 12px 20px;
+  border-bottom: 2px solid #10cedf;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  transition: all 0.3s ease-in-out;
+}
+
+.scrolled {
+  background-color: rgba(17, 17, 17, 0.95);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* ✅ Brand Logo */
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #f8f9fa !important;
+  text-decoration: none;
+  transition: color 0.3s ease-in-out;
+}
+
+.logoIcon {
+  color: #10cedf;
+  size: 100px;
+  height: 50px;
+  width: 60px;
+  margin-left: 0;
+  transform: scale(1.1);
+  margin-right: 20px;
+  filter: drop-shadow(0 0 2px rgba(16, 206, 223, 0.5));
+}
+
+.highlight {
+  color: #10cedf;
+}
+
+/* ✅ Toggle Button */
+.toggleButton {
+  background: none;
+  border: none;
+  color: #f8f9fa;
+  padding: 0;
+  cursor: pointer;
+  display: none;
+  z-index: 3000;
+  position: relative;
+}
+
+.menuIcon {
+  color: #10cedf;
+  transition: transform 0.3s ease;
+}
+
+.active .menuIcon {
+  transform: rotate(90deg);
+}
+
+/* ✅ Nav Links Container */
+.navLinksContainer {
+  transition: all 0.3s ease-in-out;
+}
+
+.navList {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+  gap: 20px;
+}
+
+.navItem {
+  position: relative;
+}
+
+.navLink {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #f8f9fa !important;
+  text-decoration: none;
+  font-size: 1.1rem;
+  padding: 8px 15px;
+  transition: all 0.3s ease-in-out;
+  position: relative;
+}
+
+.navIcon {
+  color: #10cedf;
+  font-size: 1.2rem;
+  transition: transform 0.3s ease;
+}
+
+.navLink:hover {
+  color: #10cedf !important;
+}
+
+.navLink:hover .navIcon {
+  transform: translateY(-2px);
+}
+
+.navLink::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 50%;
+  background-color: #10cedf;
+  transition: all 0.3s ease-in-out;
+}
+
+.navLink:hover::after {
+  width: 100%;
+  left: 0;
+}
+
+/* ✅ Responsive Design */
+@media (max-width: 992px) {
+  .toggleButton {
+    display: block !important;
+    margin-left: auto;
+    color: #10cedf;
+    padding: 10px;
+  }
+
+  .navLinksContainer {
+    position: fixed;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    background: rgba(17, 17, 17, 0.95);
+    padding: 20px;
+    transform: translateY(-100%);
+    opacity: 0;
+    transition: all 0.3s ease-in-out;
+    z-index: 2999;
+  }
+
+  .navOpen {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  .navClosed {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+
+  .navList {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .navItem {
+    margin: 10px 0;
+    width: 100%;
+    text-align: center;
+  }
+
+  .navLink {
+    justify-content: center;
+    font-size: 1.2rem;
+    padding: 10px 20px;
+  }
+}
+
+/* ✅ Prevent Content Overlapping */
+body {
+  padding-top: 70px;
+}
