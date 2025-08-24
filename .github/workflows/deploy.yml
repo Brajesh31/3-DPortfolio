@@ -24,9 +24,6 @@ jobs:
       - name: Run build
         run: npm run build
 
-      - name: Sitemap
-        run: npm run sitemap
-
       - name: Deploy dist folder via FTP
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
