@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: "🔐 Private security vulnerability reporting"
+    url: https://github.com/Brajesh31/3-DPortfolio/security/advisories/new
+    about: Report security vulnerabilities privately. Do not publish exploit details in a public issue.

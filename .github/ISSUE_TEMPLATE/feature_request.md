@@ -1,23 +1,30 @@
 ---
-name: Feature request
-about: Propose a focused improvement
+name: "✨ Feature request"
+about: Propose a user-focused improvement
 title: "[Feature]: "
 labels: ["enhancement"]
 assignees: ""
 ---
 
-## Problem or opportunity
-What user need does this address?
+## 🎯 Problem or opportunity
+What user need or project limitation does this address?
 
-## Proposed change
-Describe the intended behaviour.
+## 💡 Proposed solution
+Describe the desired behaviour from the visitor's perspective.
 
-## Benefits
-Who benefits, and how?
+## 🌟 Expected benefits
+Who benefits and how will the experience improve?
 
-## Scope and alternatives
-Mention trade-offs, alternatives, and any effects on performance, accessibility, or mobile layouts.
+## 🧩 Scope
+Which pages, components, devices, or integrations are affected?
 
-## Checklist
+## ⚖️ Alternatives and trade-offs
+Mention alternatives and possible costs to performance, accessibility, and maintenance.
+
+## ✅ Acceptance criteria
+- [ ]
+- [ ]
+
+## ✅ Checklist
 - [ ] I searched existing issues and discussions.
-- [ ] This proposal does not require unrelated source changes.
+- [ ] This proposal is focused and testable.

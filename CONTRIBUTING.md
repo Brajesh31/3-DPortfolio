@@ -1,49 +1,181 @@
-# Contributing
+# 🤝 Contributing to 3-D Portfolio
 
-Thank you for considering a contribution to 3-D Portfolio.
+Thank you for taking the time to contribute. This guide explains how to propose changes, prepare a local environment, validate work, and submit a pull request that maintainers can review efficiently.
 
-## Before starting
+## 📚 Table of Contents
 
-1. Read the project README and this guide.
-2. Search existing issues and pull requests to avoid duplicate work.
-3. For substantial changes, open an issue first to discuss the proposed approach.
-4. Do not include credentials, private contact data, generated build output, or dependencies in a pull request.
+- [🎯 Contribution Philosophy](#-contribution-philosophy)
+- [🧭 Ways to Contribute](#-ways-to-contribute)
+- [🛠️ Development Environment](#️-development-environment)
+- [🌿 Branching and Commit Practices](#-branching-and-commit-practices)
+- [🧪 Validation Expectations](#-validation-expectations)
+- [🎨 UI, 3D, and Accessibility Considerations](#-ui-3d-and-accessibility-considerations)
+- [🔐 Security and Privacy](#-security-and-privacy)
+- [📦 Pull Request Process](#-pull-request-process)
+- [✅ Review Checklist](#-review-checklist)
+- [❓ Questions](#-questions)
 
-## Development setup
+## 🎯 Contribution Philosophy
 
-Requirements: Node.js 18 or newer and npm.
+The goal is to improve the portfolio without making it harder to maintain. A good contribution solves a clear problem, respects the existing architecture, and explains why the change is useful. Large rewrites, broad formatting changes, or new dependencies without a concrete benefit increase review cost and should be discussed before implementation.
+
+Contributions should preserve the application's intended user experience. A visually impressive change that breaks keyboard navigation, adds excessive rendering cost, or makes mobile use unreliable is not a complete improvement.
+
+## 🧭 Ways to Contribute
+
+Contributions may include:
+
+| Area | Examples | Useful evidence |
+|---|---|---|
+| 🐛 Bug fixes | Broken navigation, visual regressions, runtime errors | Reproduction steps and before/after result |
+| ✨ Enhancements | Better project presentation, improved interaction | User problem and expected behaviour |
+| 📚 Documentation | Setup, architecture, deployment, clarification | Corrected instructions or references |
+| ♿ Accessibility | Keyboard support, labels, focus, contrast | Browser and assistive technology details |
+| ⚡ Performance | Reduced 3D load, optimized assets, fewer unnecessary effects | Measurements and device details |
+| 🧪 Quality | Test strategy, reproducible checks | Commands and outcomes |
+| 🔐 Security | Safer configuration and dependency hygiene | Private report for vulnerabilities |
+
+Do not open an issue that exposes private credentials, personal contact details, or a security exploit. Use the private security process described in [SECURITY.md](SECURITY.md).
+
+## 🛠️ Development Environment
+
+### Prerequisites
+
+- Node.js 18 or newer.
+- npm.
+- Git.
+- A modern browser.
+- WebGL support for the full 3D experience.
+
+### Clone and install
 
 ```bash
+git clone https://github.com/Brajesh31/3-DPortfolio.git
+cd 3-DPortfolio
 npm ci
+```
+
+### Start the local server
+
+```bash
 npm run dev
 ```
 
-Vite prints the local development URL in the terminal.
+Use the URL printed by Vite. Do not assume the server always chooses the same port if the default is occupied.
 
-## Suggested workflow
+### Build locally
 
-1. Create a focused branch from `main`.
-2. Make changes related to one issue or improvement.
-3. Run `npm run build`.
-4. Test affected pages in a modern browser. For 3D changes, verify a WebGL-capable browser and check a narrow viewport.
-5. Update documentation when commands, setup, behavior, or deployment assumptions change.
-6. Open a pull request with context, screenshots for visual changes, and test results.
+```bash
+npm run build
+```
 
-## Pull request expectations
+The production bundle is generated in `dist/`. The contents are generated artifacts and should not be edited manually or included in a normal source contribution.
 
-- Explain the problem and the chosen solution.
-- Link related issues using GitHub closing keywords when appropriate.
-- Keep changes scoped and avoid unrelated formatting or refactoring.
-- Add or update tests when the project has applicable test coverage.
-- Call out accessibility impact, performance impact, and breaking changes.
-- Never commit `node_modules/`, generated `dist/`, local environment files, or secrets.
+## 🌿 Branching and Commit Practices
 
-## Code and design
+Create a short, descriptive branch from the current default branch:
 
-Follow the conventions already present in the relevant files. Preserve the existing React, Vite, and Three.js architecture unless a change has been discussed and accepted. Keep animations usable and respect reduced-motion preferences where feasible.
+```bash
+git checkout main
+git pull origin main
+git checkout -b docs/improve-deployment-guide
+```
 
-## Reporting issues
+Suggested branch prefixes:
 
-Use the repository issue templates. For suspected security vulnerabilities, follow [SECURITY.md](SECURITY.md) instead of posting sensitive details publicly.
+- `fix/` for a specific defect.
+- `feat/` for a user-facing enhancement.
+- `docs/` for documentation-only work.
+- `test/` for test additions or corrections.
+- `chore/` for maintenance.
 
-By submitting a contribution, you confirm that you have the right to submit it under the repository's MIT license. Contributions remain subject to applicable third-party license terms.
+Use commit messages that describe the effect of the commit. Examples:
+
+```text
+docs: clarify local development setup
+fix: handle missing project preview image
+feat: improve project navigation feedback
+```
+
+Do not claim that a change is a fix if it has not been reproduced and verified.
+
+## 🧪 Validation Expectations
+
+Run the checks relevant to the files changed. For all frontend changes, a production build is the minimum baseline:
+
+```bash
+npm ci
+npm run build
+```
+
+Also test the affected user journey manually. For routing changes, test direct route entry and browser refresh. For animation changes, check the transition in a real browser. For 3D changes, test WebGL-capable hardware and consider a lower-powered device.
+
+The repository currently does not define a dedicated unit-test or E2E script in `package.json`. Do not invent a test command or report automated coverage that does not exist.
+
+## 🎨 UI, 3D, and Accessibility Considerations
+
+### Visual changes
+- Include screenshots or a short recording for meaningful UI changes.
+- Check desktop, tablet, and mobile layouts.
+- Confirm that text remains readable over imagery and 3D scenes.
+- Avoid introducing layout shifts or blocking overlays.
+
+### 3D and animation changes
+- Consider scene load time, geometry complexity, texture size, and GPU cost.
+- Avoid making essential text or navigation dependent on the 3D canvas.
+- Check behaviour when WebGL is unavailable.
+- Consider reduced-motion preferences and avoid unnecessary continuous animation.
+
+### Accessibility changes
+- Use semantic controls and meaningful accessible names.
+- Preserve visible keyboard focus.
+- Label all form fields.
+- Ensure dynamic success and error messages can be perceived by assistive technology.
+- Do not use colour alone to communicate state.
+
+Use [ACCESSIBILITY.md](ACCESSIBILITY.md) as the review baseline.
+
+## 🔐 Security and Privacy
+
+Never commit:
+- EmailJS account secrets or private tokens.
+- FTP usernames or passwords.
+- Personal contact messages or exported form submissions.
+- Local environment files containing secrets.
+- Private credentials in screenshots or logs.
+
+Anything bundled into browser code is public. Values prefixed with `VITE_` are not suitable for secrets. If a credential is exposed, remove it from active use and rotate it. Deleting it from a later commit does not invalidate an exposed credential.
+
+For vulnerabilities, follow the private reporting instructions in [SECURITY.md](SECURITY.md).
+
+## 📦 Pull Request Process
+
+1. **Discuss** substantial changes before doing extensive work.
+2. **Scope** the branch to one issue or coherent improvement.
+3. **Implement** the smallest maintainable change that addresses the problem.
+4. **Validate** the build and affected flows.
+5. **Document** new setup, configuration, or behavioural details.
+6. **Submit** a pull request using the repository template.
+7. **Respond** to review feedback with focused commits and explanations.
+
+A useful pull request description includes the context, implementation choice, alternatives considered, test results, screenshots where relevant, accessibility impact, and any migration or deployment notes.
+
+## ✅ Review Checklist
+
+Before requesting review:
+
+- [ ] The change solves the stated problem.
+- [ ] The diff contains no unrelated formatting or generated files.
+- [ ] The production build was run when applicable.
+- [ ] Affected flows were tested in a browser.
+- [ ] Desktop and mobile layouts were considered.
+- [ ] Keyboard and accessibility impact was reviewed.
+- [ ] No credentials or personal data were committed.
+- [ ] Documentation was updated where needed.
+- [ ] Breaking changes and limitations are disclosed.
+
+## ❓ Questions
+
+For general usage questions, use an issue or discussion where appropriate. For conduct concerns or security issues, follow their separate private reporting guidance. Be specific and include only the information needed to understand the question.
+
+Thank you for helping keep this project useful, readable, and maintainable.

@@ -1,0 +1,9 @@
+# Normalize text files across supported operating systems.
+* text=auto
+*.md text eol=lf
+*.yml text eol=lf
+*.yaml text eol=lf
+*.json text eol=lf
+*.js text eol=lf
+*.jsx text eol=lf
+*.css text eol=lf
