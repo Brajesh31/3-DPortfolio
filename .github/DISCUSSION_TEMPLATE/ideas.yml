@@ -1,0 +1,24 @@
+title: "💡 Idea: "
+body:
+  - type: markdown
+    attributes:
+      value: "Use this discussion to explore a proposal before opening an implementation issue."
+  - type: textarea
+    id: problem
+    attributes:
+      label: "🎯 Problem or opportunity"
+      description: "What user or maintainer need does this address?"
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: "💡 Proposed direction"
+    validations:
+      required: true
+  - type: textarea
+    id: tradeoffs
+    attributes:
+      label: "⚖️ Trade-offs and alternatives"
+    validations:
+      required: false

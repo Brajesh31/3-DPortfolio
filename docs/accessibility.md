@@ -1,24 +1,15 @@
 # Accessibility Review Guide
 
-Use [ACCESSIBILITY.md](../ACCESSIBILITY.md) as the project-level accessibility expectations.
-
-## Review scope
-
-Prioritize the navigation, interactive buttons, contact form, project links, page headings, and any overlay or loading state.
-
-## Checklist
+See [ACCESSIBILITY.md](../ACCESSIBILITY.md) for project-wide expectations. Prioritize navigation, buttons, project links, contact form, page headings, loading overlays, and animation-heavy areas.
 
 - [ ] All interactive controls work without a pointer.
-- [ ] Keyboard focus is visible and not obscured.
+- [ ] Focus is visible and follows a logical order.
 - [ ] Links and buttons have meaningful accessible names.
-- [ ] Form controls have associated labels.
-- [ ] Error and success feedback is perceivable to assistive technology.
+- [ ] Form fields have associated labels and perceivable status feedback.
 - [ ] Images have appropriate alternative text.
-- [ ] Colour contrast is checked for text, controls, and focus indicators.
-- [ ] The page remains usable at 200% zoom and narrow viewport widths.
-- [ ] Reduced-motion preferences are considered for non-essential effects.
-- [ ] Essential content remains available if WebGL is unavailable.
+- [ ] Text, controls, and focus indicators have sufficient contrast.
+- [ ] Page remains usable at 200% zoom and narrow widths.
+- [ ] Reduced-motion preferences are considered.
+- [ ] Essential information remains available without WebGL.
 
-## Test notes
-
-Record the browser, viewport, assistive technology, steps, and observed result when filing an issue. A checklist completion is not a formal accessibility certification.
+Record browser, viewport, assistive technology, steps, and actual result when reporting a barrier. This checklist is not a conformance certification.
